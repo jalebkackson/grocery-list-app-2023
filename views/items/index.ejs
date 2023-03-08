@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grocery List</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="app">
+        <header>
+          <h1>Grocery List</h1>
+        </header>
+        <form action="/" method="POST" id="new-item" autocomplete="off">
+          <input
+            type="text"
+            placeholder="whatcha need?"
+            id="new-item"
+            name="listItem"
+            required
+          />
+          <button id="create" type="submit">Add</button>
+        </form>
+
+        <% for(let item of items) { %>
+        <div class="item">
+          <input type="checkbox" />
+          <input type="text" value="<%= item.listItem %>" disabled />
+          <div class="actions">
+            <button class="material-icons remove-btn <%= item.id %>">
+              remove_circle
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </main>
+
+    <script src="delete.js"></script>
+  </body>
+</html>
