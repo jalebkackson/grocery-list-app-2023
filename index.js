@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const Item = require("./models/item");
 const methodOverride = require("method-override");
-const dbUrl = process.env.DB_URL;
 
 // mongoose boiler
 main().catch((err) => {
@@ -15,7 +14,8 @@ main().catch((err) => {
   console.log(err);
 });
 
-// mongodb url "mongodb://127.0.0.1:27017/groceryApp"
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/groceryApp";
+// mongodb url
 async function main() {
   await mongoose
     .connect(dbUrl, {
@@ -55,6 +55,7 @@ app.delete("/:id", async (req, res) => {
   await Item.findByIdAndDelete(req.params.id);
 });
 
-app.listen(8080, () => {
-  console.log("listening on port 8080");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Serving on port ${port}`);
 });
