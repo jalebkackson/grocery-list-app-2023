@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const Item = require("./models/item");
 const methodOverride = require("method-override");
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/groceryApp";
 
 // mongoose boiler
 main().catch((err) => {
@@ -14,7 +15,6 @@ main().catch((err) => {
   console.log(err);
 });
 
-const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/groceryApp";
 // mongodb url
 async function main() {
   await mongoose
