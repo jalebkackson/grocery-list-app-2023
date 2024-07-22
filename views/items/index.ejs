@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Grocery List</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -19,7 +21,7 @@
         <form action="/" method="POST" id="new-item" autocomplete="off">
           <input
             type="text"
-            placeholder="whatcha need?"
+            placeholder="Enter an Item"
             id="new-item"
             name="listItem"
             required
@@ -29,6 +31,7 @@
 
         <% for(let item of items) { %>
         <div class="item">
+          <span class="material-icons drag_indicator"> drag_indicator </span>
           <input type="checkbox" />
           <input type="text" value="<%= item.listItem %>" disabled />
           <div class="actions">
