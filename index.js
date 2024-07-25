@@ -1,4 +1,4 @@
-// require's/setup
+// require's and setup
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -59,3 +59,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
 });
+
+// event listener - add draggable

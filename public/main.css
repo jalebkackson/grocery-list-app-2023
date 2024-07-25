@@ -16,6 +16,8 @@ button {
 body {
   background-color: #292948;
   color: #fff;
+  position: absolute;
+  display: flex;
 }
 
 main {
@@ -125,6 +127,11 @@ item.complete {
 .actions button.remove-btn {
   color: crimson;
   font-size: 3rem;
+}
+
+.drag_indicator {
+  font-size: 3rem;
+  color: #b5b5b5;
 }
 
 .actions button:hover {
