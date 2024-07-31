@@ -35,14 +35,14 @@ main {
 
 .app header h1 {
   color: #efeded;
-  font-size: 70px;
+  font-size: 35px;
   font-weight: 400;
 }
 
 .app form#new-item button {
   color: #ffffff;
-  font-size: 40px;
-  border-radius: 1.5rem;
+  font-size: 20px;
+  border-radius: 1rem;
   padding: 12px;
   background: #5d19a0;
 }
@@ -51,12 +51,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   background-color: #1b1c1f;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 form input[type="text"] {
@@ -66,7 +66,7 @@ form input[type="text"] {
   outline: none;
   font-weight: 400;
   color: #fff;
-  font-size: 40px;
+  font-size: 20px;
   flex: 1 1 0%;
   margin-right: 1rem;
   width: 100%;
@@ -80,7 +80,7 @@ form input[type="text"] {
   border-radius: 1rem;
   background-color: #1e223d;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   width: 100%;
 }
 
@@ -99,7 +99,7 @@ form input[type="text"] {
   outline: none;
   font-weight: 400;
   color: #fff;
-  font-size: 40px;
+  font-size: 20px;
   flex: 1 1 0%;
   margin-right: 1rem;
   width: 100%;
@@ -123,11 +123,11 @@ item.complete {
 
 .actions button.remove-btn {
   color: crimson;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .drag_indicator {
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: #b5b5b5;
 }
 
