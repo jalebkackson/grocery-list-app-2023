@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: sans-serif;
 }
 
@@ -16,8 +16,8 @@ button {
 body {
   background-color: #292948;
   color: #fff;
-  position: absolute;
   display: flex;
+  width: 100%;
 }
 
 main {
@@ -25,19 +25,13 @@ main {
   display: flex;
   justify-content: center;
   padding: 2rem 1.5rem;
+  width: 100%;
 }
 
 .app {
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
+  width: 100% !important;
+  /* max-width: 900px; */
 }
-
-/* .app header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-} */
 
 .app header h1 {
   color: #efeded;
