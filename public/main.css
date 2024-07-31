@@ -69,17 +69,19 @@ form input[type="text"] {
   font-size: 40px;
   flex: 1 1 0%;
   margin-right: 1rem;
+  width: 100%;
 }
 
 .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   background-color: #1e223d;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .item:last-of-type {
@@ -100,6 +102,7 @@ form input[type="text"] {
   font-size: 40px;
   flex: 1 1 0%;
   margin-right: 1rem;
+  width: 100%;
 }
 
 item.complete {
