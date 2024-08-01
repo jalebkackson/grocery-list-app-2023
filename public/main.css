@@ -84,6 +84,10 @@ form input[type="text"] {
   width: 100%;
 }
 
+li {
+  margin-bottom: 0.5rem;
+}
+
 .item:last-of-type {
   margin-bottom: 0;
 }
@@ -111,7 +115,7 @@ item.complete {
 
 .item:hover,
 .item:focus-within {
-  outline: 2px solid #fff;
+  outline: 2px solid #e75a5a;
 }
 
 .actions button {

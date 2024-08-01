@@ -8,7 +8,6 @@ mongoose.set("strictQuery", false);
 const Item = require("./models/item");
 const methodOverride = require("method-override");
 const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/groceryApp";
-
 // mongoose boiler
 main().catch((err) => {
   console.log("OH NO MONGO ERROR!!!");
@@ -59,5 +58,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
 });
-
-// event listener - add draggable

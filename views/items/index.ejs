@@ -27,23 +27,32 @@
           />
           <button id="create" type="submit">Add</button>
         </form>
-
-        <% for(let item of items) { %>
-        <div class="item" draggable="true">
-          <button class="material-icons drag_indicator">drag_indicator</button>
-          <input type="checkbox" />
-          <input type="text" value="<%= item.listItem %>" disabled />
-          <div class="actions">
-            <button class="material-icons remove-btn <%= item.id %>">
-              remove_circle
-            </button>
-          </div>
-        </div>
-        <% } %>
+        <ul id="list">
+          <% for(let item of items) { %>
+          <li>
+            <div class="item">
+              <button class="material-icons drag_indicator">
+                drag_indicator
+              </button>
+              <input type="checkbox" />
+              <input type="text" value="<%= item.listItem %>" disabled />
+              <div class="actions">
+                <button class="material-icons remove-btn <%= item.id %>">
+                  remove_circle
+                </button>
+              </div>
+            </div>
+          </li>
+          <% } %>
+        </ul>
       </div>
     </main>
 
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <!-- delete function -->
     <script src="delete.js"></script>
-    <script src="DragDropTouch.js"></script>
+    <!-- behavior file -->
+    <script src="./app.js"></script>
   </body>
 </html>
