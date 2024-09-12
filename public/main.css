@@ -116,7 +116,7 @@ item.complete {
 
 .item:hover,
 .item:focus-within {
-  outline: 2px solid #e75a5a;
+  outline: 2px solid #ff00aa;
 }
 
 .actions button {
@@ -128,7 +128,8 @@ item.complete {
 
 .actions button.remove-btn {
   color: crimson;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  padding-right: 10px;
 }
 
 .drag_indicator {
