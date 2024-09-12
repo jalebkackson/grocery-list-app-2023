@@ -132,8 +132,9 @@ item.complete {
 }
 
 .drag_indicator {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   color: #b5b5b5;
+  padding-right: 7px;
 }
 
 .actions button:hover {
