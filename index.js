@@ -35,20 +35,38 @@ app.use(express.static(path.join(__dirname, "public")));
 // middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.json());
 
 // main page
 app.get("/", async (req, res) => {
-  const items = await Item.find({});
+  const items = await Item.find({}).sort({ order: 1 });
   res.render("items/index.ejs", { items });
 });
 
 // route for sending json items to frontend
-app.get("/items.json", async (req, res) => {
+app.put("/update-items", async (req, res) => {
+  const { updatedOrder } = req.body;
+  console.log(updatedOrder);
+
+  // Check if req.body is defined and contains the updatedOrder
+  if (!updatedOrder) {
+    return res.status(400).json({ message: "Invalid data received" });
+  }
+
   try {
-    const groceryItems = await Item.find().sort({ order: 1 }); // Sort by order
-    res.json(groceryItems); // Send the grocery items as JSON
+    // Iterate over updatedOrder and update items in the database
+    for (const item of updatedOrder) {
+      await Item.findOneAndUpdate(
+        { listItem: item.name },
+        { order: item.order }
+      );
+    }
+    const updatedList = await Item.find({});
+    console.log(updatedList);
+    res.status(200).json({ message: "Order updated successfully - index.js" });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching grocery items", error });
+    console.error("Error updating order: -index.js", error);
+    res.status(500).json({ message: "Failed to update order - index.js" });
   }
 });
 
