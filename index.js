@@ -61,7 +61,7 @@ app.post("/", async (req, res) => {
 
 // handle delete buttons
 app.delete("/:id", async (req, res) => {
-  // store id of item id when delete is clicked
+  // store item id when delete is clicked
   const itemId = req.params.id;
   const itemToRemove = await Item.findById(itemId); // find item to delete
   const orderValue = itemToRemove.order; // store the order value of item

@@ -35,7 +35,12 @@
                 drag_indicator
               </button>
               <input type="checkbox" />
-              <input type="text" value="<%= item.listItem %>" disabled />
+              <input
+                class="itemInput"
+                type="text"
+                value="<%= item.listItem %>"
+                disabled
+              />
               <div class="actions">
                 <button class="material-icons remove-btn <%= item.id %>">
                   remove_circle
