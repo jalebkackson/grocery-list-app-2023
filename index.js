@@ -93,7 +93,7 @@ app.delete("/:id", async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Serving on port ${port}`);
 });
 
@@ -104,3 +104,39 @@ async function docCount() {
   console.log(docs);
 }
 docCount();
+
+// Gracefully shut down on Railway restarts/deploys (SIGTERM) or local
+// interrupts (SIGINT) instead of letting the process get killed mid-request.
+function gracefulShutdown(signal) {
+  console.log(`${signal} received: starting graceful shutdown`);
+
+  server.close(async (err) => {
+    if (err) {
+      console.error("Error while closing HTTP server:", err);
+      process.exitCode = 1;
+    } else {
+      console.log("HTTP server closed");
+    }
+
+    try {
+      await mongoose.connection.close();
+      console.log("MongoDB connection closed");
+    } catch (closeErr) {
+      console.error("Error while closing MongoDB connection:", closeErr);
+      process.exitCode = 1;
+    }
+
+    process.exit(process.exitCode || 0);
+  });
+
+  // Force exit if shutdown takes too long, so the process doesn't hang
+  // past Railway's drain period.
+  setTimeout(() => {
+    console.error("Graceful shutdown timed out, forcing exit");
+    process.exit(1);
+  }, 10000).unref();
+}
+
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+
