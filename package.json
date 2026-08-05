@@ -1,0 +1,13 @@
+{
+  "name": "grocery-list-app-2023",
+  "version": "1.0.0",
+  "description": "a grocery list with database so it can be shared",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3"
+  }
+}
